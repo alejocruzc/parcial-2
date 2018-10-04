@@ -1,0 +1,105 @@
+//alejandro cruz
+//jose medrano
+
+
+#include <iostream>
+#include <stdio.h>
+#include <math.h>
+#include <cstring>
+#include <Complex>
+
+using namespace std;
+int Producto_Punto(int array1[3], int array2[3] );
+int Producto_Cruz(int array1[3],int array2[3]);
+void Anagrama (char *cadena1, char*cadena2);
+double fasore(double x, double y);
+
+int array1[3]={1,2,3}; //Vector 1 tridimensional
+int array2[3]={4,5,6}; //Vector 2 tridimensional
+
+int cruz[3]; //nuevo vector para producto cruz
+int pp=0;  //variable para almacenar resultado de producto punto
+char *cadena1="toga";  //cadena
+char *cadena2="gato";  //cadena
+
+double real;
+double imag;
+double suma;
+
+
+int main()
+{
+
+  Producto_Punto(array1,array2);
+  Producto_Cruz(array1,array2);
+  Anagrama(cadena1,cadena2);
+ // fasore(); INCOMPLETO
+
+}
+
+int Producto_Punto(int array1[3], int array2[3] ) //Funcion para calcular el producto punto de 2 vectores tridimensionales
+{
+   pp=array1[0]*array2[0]+array1[1]*array2[1]+array1[2]*array2[2]; //proceso matematico para hallar el producto punto (escalar)
+
+   cout << "EL RESULTADO DE PRODUCTO PUNTO ES "<< pp<<endl;
+
+}
+
+int Producto_Cruz(int array1[3],int array2[3]) //Funcion para calcular producto cruz de 2 vectores tridimensionales
+{
+    cruz[0]=array1[1]*array2[2]-array2[1]*array1[2]; //Determinante para hallar direccion en i
+    cruz[1]=array1[0]*array2[2]-array2[0]*array1[2]; //Determinante para hallar direccion en j
+    cruz[2]=array1[0]*array2[1]-array2[0]*array1[1]; //Determinante para hallar direccion en k
+
+
+    cout<<"EL PRODUCTO CRUZ ES"<<endl;
+    cout<<cruz[0]<<"i";       //guardar valor en  un nuevo vector
+    cout<<cruz[1]<<"J";       //guardar valor en  un nuevo vector
+    cout<<cruz[2]<<"K"<<endl;//guardar valor en  un nuevo vector
+}
+
+
+
+
+void Anagrama (char *cadena1, char*cadena2) // FUNCION PARA ANALIZAR SI 2 PALABRAS SON ANAGRAMAS
+{
+
+    int coincidencia=0;
+
+    if (strlen(cadena1)==strlen(cadena2))
+    {
+       for (int i=0;i<strlen(cadena1);i++)
+       {
+         for(int j=0;j<strlen(cadena2);j++)
+         {
+             if (cadena1[i]==cadena2[j])
+             coincidencia++;
+
+         }
+
+       }
+if (coincidencia==strlen(cadena1))
+    cout<<"las cadenas son anagramas"<<endl;
+
+
+
+    }
+
+if (coincidencia!=strlen(cadena1))
+   cout<<"las cadenas  NO son anagramas"<<endl;
+
+}
+
+/*double fasore(double x, double y)  //INCOMPLETO
+{
+
+    double a=4;
+    double b = 5;
+
+    cout<<"ingrese el numero complejo:"<<endl;
+std::cin >> suma;
+
+
+double magnitud= sqrt(suma);
+}*/
+
